@@ -1,45 +1,171 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta content="viewport" name="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta content="viewport" name="width=device-width, initial-scale=1.0" />
     <title>Pricing Plans Two Colors</title>
     <style>
-
+      :root {
+        --brand-color: #1998ff;
+        --gray-color: #545454;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .plans {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 30px;
+        width: 60%;
+        margin: 110px auto;
+        
+        .plan {
+          text-align: center;
+          border: 1px solid #44596941;
+          padding-top: 110px;
+          position: relative;
+          &.pro {
+            background-color: var(--brand-color);
+            color: white;
+            .price {
+              &::after {
+                content: "hot";
+                position: absolute;
+                top: 0;
+                right: 0;
+                transform: translate(20%, -20%);
+                font-size: 20px;
+                font-weight: bold;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: white;
+                color: var(--brand-color);
+                border: 1px solid var(--brand-color);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+            }
+            .footer button {
+              background-color: white;
+              color: var(--brand-color);
+            }
+          }
+          &.ult {
+            color: var(--gray-color);
+            .price::before {
+              outline-color: #44596941;
+            }
+            .footer button {
+              background-color: var(--brand-color);
+              color: white;
+            }
+          }
+          .price {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -40%);
+            font-size: 40px;
+            background-color: var(--brand-color);
+            color: white;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-wrap: wrap;
+            span {
+              display: block;
+              width: 100%;
+              font-size: 16px;
+              font-weight: bold;
+            }
+            &::before {
+              content: "";
+              position: absolute;
+              width: 150px;
+              height: 150px;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              border-radius: 50%;
+              border: 12px solid white;
+              outline: 1px solid var(--brand-color);
+            }
+          }
+          h3 {
+            font-size: 30px;
+          }
+          ul {
+            border-top: 1px solid #44596941;
+            li {
+              font-size: 17px;
+              font-weight: bold;
+              padding: 15px 0;
+              border-bottom: 1px solid #44596941;
+            }
+          }
+          .footer {
+            button {
+              margin: 30px 0;
+              padding: 15px 20px;
+              border-radius: 30px;
+              font-size: 18px;
+              border: none;
+              outline: none;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      @media (max-width: 991px) {
+          .plans {
+            gap: 100px;
+          }
+        }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="plans">
-        <div class="plan Pro">
-          <div class="price">$ 169<span>/Month</span></div>
-          <h3>PROFESSIONAL</h3>
-          <ul>
-            <li>Web Design</li>
-            <li>Web Development</li>
-            <li>Photography</li>
-            <li>Javascript</li>
-            <li>Photoshop</li>
-            <li>HTML/CSS</li>
-          </ul>
-          <div class="footer">
-            <button>Purchase Now</button>
-          </div>
+    <div class="plans">
+      <div class="plan pro">
+        <div class="price">$169<span>/Month</span></div>
+        <h3>PROFESSIONAL</h3>
+        <ul>
+          <li>Web Design</li>
+          <li>Web Development</li>
+          <li>Photography</li>
+          <li>Javascript</li>
+          <li>Photoshop</li>
+          <li>HTML/CSS</li>
+        </ul>
+        <div class="footer">
+          <button>Purchase Now</button>
         </div>
-        <div class="plan ult">
-          <div class="price">$ 269<span>/Month</span></div>
-          <h3>ULTIMATE</h3>
-          <ul>
-            <li>Web Design</li>
-            <li>Web Development</li>
-            <li>Photography</li>
-            <li>Javascript</li>
-            <li>Photoshop</li>
-            <li>HTML/CSS</li>
-          </ul>
-          <div class="footer">
-            <button>Purchase Now</button>
-          </div>
+      </div>
+      <div class="plan ult">
+        <div class="price">$269<span>/Month</span></div>
+        <h3>ULTIMATE</h3>
+        <ul>
+          <li>Web Design</li>
+          <li>Web Development</li>
+          <li>Photography</li>
+          <li>Javascript</li>
+          <li>Photoshop</li>
+          <li>HTML/CSS</li>
+        </ul>
+        <div class="footer">
+          <button>Purchase Now</button>
         </div>
       </div>
     </div>
